@@ -1,41 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://test/ring_segment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://test/ring_game.gd" type="Script" id=2]
+
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.77619, 0.209091 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Slow"
-length = 1.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
-
 [node name="World" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Gun" type="Line2D" parent="."]
 position = Vector2( 240, 340 )
@@ -54,9 +26,90 @@ position = Vector2( 240, 270 )
 [node name="Ring" type="Node2D" parent="."]
 position = Vector2( 240, 240 )
 
-[node name="Line2D" type="Line2D" parent="Ring"]
-points = PoolVector2Array( 2.00006, -218, -153, -177, -209, -33, -163, 169, 9, 213, 179, 141, 190, -78, 84, -194, 2, -218 )
+[node name="RingSegment5" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -61.8034, 190.211 )
+rotation = 0.314159
 
-[node name="RingSpinner" type="AnimationPlayer" parent="Ring"]
-anims/RESET = SubResource( 2 )
-anims/Slow = SubResource( 3 )
+[node name="RingSegment6" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 61.8034, -190.211 )
+rotation = -2.82743
+
+[node name="RingSegment7" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -190.211, -61.8034 )
+rotation = 1.88496
+
+[node name="RingSegment8" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 190.211, 61.8034 )
+rotation = -1.25664
+
+[node name="RingSegment" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 0, 200 )
+
+[node name="RingSegment3" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 0, -200 )
+rotation = 3.14159
+
+[node name="RingSegment2" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -200, 0 )
+rotation = 1.5708
+
+[node name="RingSegment4" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 200, 0 )
+rotation = -1.5708
+
+[node name="RingSegment9" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -117.557, 161.803 )
+rotation = 0.628319
+
+[node name="RingSegment10" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 117.557, -161.803 )
+rotation = -2.51327
+
+[node name="RingSegment11" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -161.803, -117.557 )
+rotation = 2.19911
+
+[node name="RingSegment12" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 161.803, 117.557 )
+rotation = -0.942478
+scale = Vector2( 1, 1 )
+
+[node name="RingSegment13" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -161.803, 117.557 )
+rotation = 0.942478
+
+[node name="RingSegment14" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 161.803, -117.557 )
+rotation = -2.19911
+
+[node name="RingSegment15" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -117.557, -161.803 )
+rotation = 2.51327
+
+[node name="RingSegment16" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 117.557, 161.803 )
+rotation = -0.628319
+scale = Vector2( 1, 1 )
+
+[node name="RingSegment17" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -190.211, 61.8034 )
+rotation = 1.25664
+
+[node name="RingSegment18" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 190.211, -61.8034 )
+rotation = -1.88496
+scale = Vector2( 1, 1 )
+
+[node name="RingSegment19" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( -61.8034, -190.211 )
+rotation = 2.82743
+
+[node name="RingSegment20" parent="Ring" instance=ExtResource( 1 )]
+position = Vector2( 61.8034, 190.211 )
+rotation = -0.314159
+
+[node name="GunCooldownTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="timeout" from="GunCooldownTimer" to="." method="_on_GunCooldownTimer_timeout"]

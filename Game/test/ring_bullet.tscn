@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="RingBullet" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 16
+gravity_scale = 0.0
+linear_velocity = Vector2( 0, -260 )
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 1, 0, -1 )
+width = 20.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
