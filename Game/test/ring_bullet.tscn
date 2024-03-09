@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/particles/orb5.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -12,9 +14,6 @@ linear_damp = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( 0, 1, 0, -1 )
-width = 20.0
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="Orb5" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
