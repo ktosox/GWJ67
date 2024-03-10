@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/seamless_texture9.png-31b18967f05cfa20f345394c4dfb9af9.stex"
+path="res://.import/fade_up.png-9edde6ae3ab0f5b85c27fb7781e390f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/seamless_texture9.png"
-dest_files=[ "res://.import/seamless_texture9.png-31b18967f05cfa20f345394c4dfb9af9.stex" ]
+source_file="res://resources/fade_up.png"
+dest_files=[ "res://.import/fade_up.png-9edde6ae3ab0f5b85c27fb7781e390f1.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
-flags/filter=false
+flags/repeat=0
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

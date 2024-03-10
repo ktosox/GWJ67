@@ -1,0 +1,65 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=1]
+[ext_resource path="res://resources/shaders/color_fade.tres" type="Shader" id=2]
+[ext_resource path="res://resources/particles/orb2.png" type="Texture" id=3]
+[ext_resource path="res://resources/textures/seamless_texture10.png" type="Texture" id=4]
+[ext_resource path="res://resources/textures/seamless_texture13.png" type="Texture" id=5]
+[ext_resource path="res://resources/textures/seamless_texture2.png" type="Texture" id=6]
+[ext_resource path="res://resources/shaders/edgles_fire.tres" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/scrollSpeed = Vector2( 0, -0.269 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.187097, 0.374194, 0.6, 0.896774 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.76124, 0.76124, 0.378736, 1, 0.470588, 0.470588, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/scorll1 = Vector2( 0, 0 )
+shader_param/scorll2 = Vector2( 0.379, -0.531 )
+shader_param/power1 = 0.0
+shader_param/power2 = 0.28
+shader_param/texture2 = ExtResource( 5 )
+shader_param/gradient = SubResource( 4 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.43871 )
+colors = PoolColorArray( 1, 1, 1, 0, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 7 )
+shader_param/scrollSpeed = Vector2( 0, 0.599 )
+shader_param/texture2 = ExtResource( 4 )
+shader_param/gradient = SubResource( 6 )
+
+[node name="shader_test" type="Node2D"]
+
+[node name="Simple scroll" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 392, 335 )
+texture = ExtResource( 4 )
+
+[node name="ColorFade" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 988, 319 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "animate this one by adjusting Power 2"
+}
+
+[node name="SeamlessTexture8" type="Sprite" parent="."]
+material = SubResource( 7 )
+position = Vector2( 1437, 404 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": "Needs more work"
+}
