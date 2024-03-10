@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://stuff/cargo/cargo_base.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 35 )
+
+[node name="Barrel" instance=ExtResource( 1 )]
+mass = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
+polygon = PoolVector2Array( -20, -35, -20, 35, 20, 35, 20, -35 )
+
+[node name="Line2D" type="Line2D" parent="." index="3"]
+position = Vector2( 0, 2 )
+points = PoolVector2Array( -20, -35, 20, -35 )
+width = 4.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+begin_cap_mode = 1
+end_cap_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="." index="4"]
+position = Vector2( 0, 68 )
+points = PoolVector2Array( -20, -35, 20, -35 )
+width = 4.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+begin_cap_mode = 1
+end_cap_mode = 1

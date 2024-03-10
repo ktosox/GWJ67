@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=1]
 [ext_resource path="res://resources/shaders/color_fade.tres" type="Shader" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://resources/textures/seamless_texture13.png" type="Texture" id=5]
 [ext_resource path="res://resources/textures/seamless_texture2.png" type="Texture" id=6]
 [ext_resource path="res://resources/shaders/edgles_fire.tres" type="Shader" id=7]
+[ext_resource path="res://resources/textures/seamless_texture11.png" type="Texture" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
-shader_param/scrollSpeed = Vector2( 0, -0.269 )
+shader_param/scrollSpeed = Vector2( 0.1, 0 )
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.187097, 0.374194, 0.6, 0.896774 )
@@ -44,9 +45,10 @@ shader_param/gradient = SubResource( 6 )
 [node name="shader_test" type="Node2D"]
 
 [node name="Simple scroll" type="Sprite" parent="."]
+modulate = Color( 0.258824, 0.258824, 0.258824, 1 )
 material = SubResource( 1 )
 position = Vector2( 392, 335 )
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 
 [node name="ColorFade" type="Sprite" parent="."]
 material = SubResource( 2 )
