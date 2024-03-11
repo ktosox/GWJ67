@@ -1,14 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://stuff/cargo/barrel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test/cargo_hold.gd" type="Script" id=2]
 [ext_resource path="res://stuff/gravity_elevator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://stuff/air_lock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://stuff/cargo_deleter.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 26, 441 )
+extents = Vector2( 26, 440 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 720, 30 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 89.5, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 300, 20 )
@@ -25,7 +30,7 @@ position = Vector2( -16, 368 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OuterWalls"]
-position = Vector2( 1296, 365 )
+position = Vector2( 1296, 110 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="OuterWalls"]
@@ -37,8 +42,16 @@ position = Vector2( 645, 740 )
 shape = SubResource( 2 )
 
 [node name="Line2D" type="Line2D" parent="OuterWalls"]
-points = PoolVector2Array( 0, 0, 0, 720, 1280, 720, 1280, 0, 0, 0 )
+points = PoolVector2Array( 0, 0, 0, 720, 1280, 720 )
 width = 20.0
+
+[node name="Line2D2" type="Line2D" parent="OuterWalls"]
+points = PoolVector2Array( 0, 0, 1280, 0, 1282, 543, 1149, 541 )
+width = 20.0
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="OuterWalls"]
+position = Vector2( 1233.5, 541 )
+shape = SubResource( 5 )
 
 [node name="CargoShelfs" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -74,8 +87,17 @@ margin_top = -8.0
 margin_right = 1183.0
 margin_bottom = 32.0
 
+[node name="AirLock" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1220, 711 )
+
 [node name="Barrel" parent="." instance=ExtResource( 1 )]
 position = Vector2( 977, 657 )
+
+[node name="Barrel2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 892, 652 )
+
+[node name="Barrel3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1047, 647 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 1213.0
@@ -86,3 +108,6 @@ text = "skip"
 
 [node name="GravityElevator" parent="." instance=ExtResource( 3 )]
 position = Vector2( 580, -4 )
+
+[node name="CargoDeleter" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1445, 648 )
