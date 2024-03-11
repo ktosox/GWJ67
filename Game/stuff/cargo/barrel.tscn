@@ -8,6 +8,15 @@ extents = Vector2( 20, 35 )
 [node name="Barrel" instance=ExtResource( 1 )]
 mass = 4.0
 
+[node name="Draggy" parent="." index="0"]
+position = Vector2( 0, -27 )
+
+[node name="MouseDetector" parent="Draggy" index="2"]
+margin_left = -22.0
+margin_top = -8.0
+margin_right = 22.0
+margin_bottom = 62.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
 
@@ -29,3 +38,5 @@ width = 4.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
 begin_cap_mode = 1
 end_cap_mode = 1
+
+[editable path="Draggy"]

@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Parasite"
+run/main_scene="res://world/welcome_screen.tscn"
 config/icon="res://icon.png"
 
 [display]

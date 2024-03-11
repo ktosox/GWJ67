@@ -70,8 +70,15 @@ polygon = PoolVector2Array( 0, 128, 128, 128, 128, 0, 0, 0 )
 [node name="TextureProgress" type="ProgressBar" parent="."]
 margin_left = 5.0
 margin_top = -8.0
-margin_right = 1283.0
+margin_right = 1183.0
 margin_bottom = 32.0
 
-[node name="Cargo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 990, 669 )
+[node name="Barrel" parent="." instance=ExtResource( 1 )]
+position = Vector2( 977, 657 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1213.0
+margin_top = 8.0
+margin_right = 1251.0
+margin_bottom = 28.0
+text = "skip"
