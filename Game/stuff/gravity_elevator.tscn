@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://stuff/gravity_elevator.gd" type="Script" id=1]
+[ext_resource path="res://resources/textures/seamless_texture5.png" type="Texture" id=2]
+[ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=3]
+[ext_resource path="res://resources/textures/seamless_texture10.png" type="Texture" id=4]
+[ext_resource path="res://resources/fade_up.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.529032, 0.612903, 0.696774 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.337255, 0.54902, 0.85098, 1, 0.290196, 0.537255, 0.823529, 0 )
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/scorll1 = Vector2( 0, -0.385 )
+shader_param/scorll2 = Vector2( 0, -0.45 )
+shader_param/power1 = -0.038
+shader_param/power2 = 0.028
+shader_param/texture1 = ExtResource( 4 )
+shader_param/texture2 = ExtResource( 2 )
+shader_param/color_map = SubResource( 5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 64, 360 )
+
+[node name="GravityElevator" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+space_override = 3
+gravity = 360.0
+linear_damp = 2.0
+script = ExtResource( 1 )
+
+[node name="Beam" type="Polygon2D" parent="."]
+material = SubResource( 3 )
+texture = ExtResource( 6 )
+polygon = PoolVector2Array( 0, 0, 0, 720, 128, 720, 128, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 63.5, 360 )
+shape = SubResource( 6 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 27.0
+margin_top = 693.0
+margin_right = 105.0
+margin_bottom = 713.0
+text = "flip gravity"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
