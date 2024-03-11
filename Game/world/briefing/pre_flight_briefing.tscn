@@ -1,0 +1,53 @@
+[gd_scene format=2]
+
+[node name="Pre-flightBriefing" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 27.0
+margin_right = 224.0
+margin_bottom = 245.0
+rect_scale = Vector2( 3, 2 )
+text = "stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight
+stuff regarding the next flight"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 199.0
+margin_top = 608.0
+margin_right = 531.0
+margin_bottom = 622.0
+text = "instruction what the player should do from captainw"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 625.0
+margin_top = 641.0
+margin_right = 737.0
+margin_bottom = 667.0
+text = "start the flight"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 760.0
+margin_top = 9.0
+margin_right = 1269.0
+margin_bottom = 712.0
+
+[node name="Label4" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 905.0
+margin_top = 208.0
+margin_right = 1114.0
+margin_bottom = 222.0
+text = "space for testing new mechanics"

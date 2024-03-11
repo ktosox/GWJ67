@@ -2,7 +2,7 @@
 
 [ext_resource path="res://utility/this_handles_drags.tscn" type="PackedScene" id=1]
 
-[node name="Cargo" type="RigidBody2D"]
+[node name="Cargo" type="RigidBody2D" groups=["Cargo"]]
 collision_layer = 4
 collision_mask = 6
 mode = 2

@@ -31,4 +31,13 @@ margin_right = 927.0
 margin_bottom = 121.0
 text = "start game"
 
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 326.0
+margin_top = 336.0
+margin_right = 486.0
+margin_bottom = 360.0
+pressed = true
+text = "is this your first day?"
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

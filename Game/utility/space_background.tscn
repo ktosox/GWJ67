@@ -6,7 +6,7 @@
 
 [sub_resource type="Gradient" id=1]
 interpolation_mode = 2
-offsets = PoolRealArray( 0.129032, 1 )
+offsets = PoolRealArray( 0.419355, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://stuff/cargo/barrel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test/cargo_hold.gd" type="Script" id=2]
 [ext_resource path="res://stuff/gravity_elevator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://stuff/air_lock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stuff/cargo_deleter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://stuff/parasite.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26, 440 )
@@ -91,13 +92,15 @@ margin_bottom = 32.0
 position = Vector2( 1220, 711 )
 
 [node name="Barrel" parent="." instance=ExtResource( 1 )]
-position = Vector2( 977, 657 )
+position = Vector2( 734, 669 )
 
 [node name="Barrel2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 892, 652 )
+position = Vector2( 490, 667 )
+
+[node name="Parasite" parent="Barrel2" instance=ExtResource( 6 )]
 
 [node name="Barrel3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1047, 647 )
+position = Vector2( 369, 673 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 1213.0
