@@ -14,6 +14,10 @@ config/name="Parasite"
 run/main_scene="res://world/welcome_screen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GM="*res://game_manager.tscn"
+
 [display]
 
 window/size/width=1280
