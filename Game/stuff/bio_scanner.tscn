@@ -10,10 +10,10 @@ extents = Vector2( 10, 40 )
 extents = Vector2( 300, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 30, 20 )
+extents = Vector2( 25, 20 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 120 )
+extents = Vector2( 30, 120 )
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -67,6 +67,7 @@ script = ExtResource( 2 )
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PoolVector2Array( -300, -30, -300, 30, 300, 30, 300, -30, -300, -30 )
+width = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -300, 0 )
@@ -85,6 +86,7 @@ position = Vector2( 0, 30 )
 shape = SubResource( 3 )
 
 [node name="ScanSlider" type="RigidBody2D" parent="."]
+position = Vector2( 243, 0 )
 collision_layer = 0
 collision_mask = 2
 gravity_scale = 0.0
@@ -112,7 +114,7 @@ shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="ScanSlider/ScanArea"]
 color = Color( 0.266667, 0.862745, 0.145098, 0.478431 )
-polygon = PoolVector2Array( -40, -30, -40, 210, 40, 210, 40, -30 )
+polygon = PoolVector2Array( -30, -30, -30, 210, 30, 210, 30, -30 )
 
 [node name="Animator" type="AnimationPlayer" parent="ScanSlider/ScanArea"]
 anims/RESET = SubResource( 5 )

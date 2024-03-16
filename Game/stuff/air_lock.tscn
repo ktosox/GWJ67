@@ -3,7 +3,7 @@
 [ext_resource path="res://stuff/air_lock.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 80 )
+extents = Vector2( 16, 90 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 200, 80 )
@@ -21,7 +21,7 @@ collision_mask = 4
 
 [node name="Line2D" type="Line2D" parent="DoorLeft"]
 points = PoolVector2Array( 0, -160, 0, 0 )
-width = 20.0
+width = 30.0
 
 [node name="Collider" type="CollisionShape2D" parent="DoorLeft"]
 position = Vector2( 0, -80 )
@@ -34,7 +34,7 @@ collision_mask = 4
 
 [node name="Line2D" type="Line2D" parent="DoorRight"]
 points = PoolVector2Array( 0, -160, 0, 0 )
-width = 20.0
+width = 30.0
 
 [node name="Collider" type="CollisionShape2D" parent="DoorRight"]
 position = Vector2( 0, -80 )
@@ -58,7 +58,7 @@ text = "right"
 position = Vector2( 140, -80 )
 collision_layer = 0
 collision_mask = 4
-gravity_vec = Vector2( 1, 0 )
+gravity_vec = Vector2( 6, 0 )
 gravity = 3000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VacumOfSpace"]

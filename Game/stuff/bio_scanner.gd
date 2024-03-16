@@ -23,7 +23,11 @@ func start_scan():
 	pass
 
 func complete_scan():
-	print("scan complete")
+	var cargo = $ScanSlider/ScanArea.get_overlapping_bodies()[0]
+	if cargo.get_meta("infested"):
+		print("infested")
+	else:
+		print("clean")
 	end_scan()
 	
 

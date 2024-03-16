@@ -9,3 +9,8 @@ func load_day(day = 1):
 		page.visible = false
 	get_node("AllPages/Page" + String(day)).visible = true
 	pass
+
+
+func _on_Button_pressed():
+	GM.load_level()
+	pass # Replace with function body.

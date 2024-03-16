@@ -10,7 +10,7 @@ func _ready():
 	$SpreadRange.shape = CircleShape2D.new() # adding this in since "make unique" dosent seem to work
 	assert(get_parent().is_in_group("Cargo"))
 	get_parent().set_meta("infested", true)
-	get_parent().modulate = ColorN("green")
+	#get_parent().modulate = ColorN("green")
 	pass # Replace with function body.
 
 

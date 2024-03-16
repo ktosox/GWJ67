@@ -1,20 +1,97 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://world/briefing/post_briefing.gd" type="Script" id=1]
+[ext_resource path="res://resources/fonts/hesia/Hesia-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=3]
+[ext_resource path="res://resources/textures/seamless_texture8.png" type="Texture" id=4]
+[ext_resource path="res://resources/textures/seamless_texture10.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+Fonts/fonts/normal = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.154839, 0.632258 )
+colors = PoolColorArray( 0.439216, 0.545098, 0.882353, 1, 0.296082, 0.661737, 0.984375, 1, 0.439216, 0.545098, 0.882353, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+fill = 1
+fill_from = Vector2( 0.435185, 0.296296 )
+fill_to = Vector2( 0.12037, 0.972222 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 3 )
+shader_param/scorll1 = Vector2( 0, -0.025 )
+shader_param/scorll2 = Vector2( 0, 0.041 )
+shader_param/power1 = -0.033
+shader_param/power2 = 0.518
+shader_param/texture1 = ExtResource( 4 )
+shader_param/texture2 = ExtResource( 5 )
+shader_param/color_map = SubResource( 4 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/power2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, -0.5, 1 ),
+"update": 0,
+"values": [ 0.6, 0.416, 0.6 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/power2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.518 ]
+}
 
 [node name="Post-flightBriefing" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 2 )
 script = ExtResource( 1 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 5 )
+margin_right = 894.0
+margin_bottom = 720.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+autoplay = "New Anim"
+playback_speed = 0.4
+"anims/New Anim" = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
 [node name="Label" type="Label" parent="."]
-margin_left = 568.0
+margin_left = 267.0
 margin_top = 15.0
-margin_right = 657.0
-margin_bottom = 29.0
+margin_right = 478.0
+margin_bottom = 47.0
 text = "result of flight"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 margin_left = 184.0
 margin_top = 98.0
 margin_right = 374.0
@@ -22,6 +99,7 @@ margin_bottom = 112.0
 text = "how much cargo got damaged"
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 margin_left = 190.0
 margin_top = 223.0
 margin_right = 322.0
@@ -36,20 +114,22 @@ margin_bottom = 508.0
 text = "current pay out"
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = 229.0
 margin_top = 591.0
 margin_right = 297.0
 margin_bottom = 611.0
 text = "continue"
 
-[node name="Summary" type="VBoxContainer" parent="."]
+[node name="PerformanceSummary" type="VBoxContainer" parent="."]
 margin_top = 50.0
-margin_right = 877.0
+margin_right = 769.0
 margin_bottom = 575.0
 
-[node name="Post-briefingLine" type="HBoxContainer" parent="Summary"]
-margin_right = 877.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
+[node name="Seperator" type="ColorRect" parent="PerformanceSummary"]
+margin_right = 769.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 0, 2 )
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

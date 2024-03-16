@@ -24,17 +24,13 @@ margin_bottom = 600.0
 alignment = 1
 
 [node name="Page1" parent="AllPages" instance=ExtResource( 2 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 638.0
+margin_right = 1280.0
 margin_bottom = 600.0
 
 [node name="StoryFluffGoesHere" parent="AllPages/Page1" index="0"]
 text = "Day 1 fluff"
-
-[node name="NewToyPlayground" parent="AllPages/Page1" index="1"]
-margin_right = 638.0
 
 [node name="Page2" parent="AllPages" instance=ExtResource( 2 )]
 visible = false
@@ -77,6 +73,8 @@ margin_bottom = 600.0
 
 [node name="NewToyPlayground" parent="AllPages/Page5" index="1"]
 margin_right = 638.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
 [editable path="AllPages/Page1"]
 [editable path="AllPages/Page2"]

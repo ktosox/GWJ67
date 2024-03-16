@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -14,14 +14,14 @@ func _ready():
 func sleep():
 	if $Animator.is_playing():
 		return
-	mouse_filter = Control.MOUSE_FILTER_STOP
+	$MouseBlock.mouse_filter = Control.MOUSE_FILTER_STOP
 	$Animator.play("close")
 	
 	pass
 
 
 func wake():
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$MouseBlock.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
