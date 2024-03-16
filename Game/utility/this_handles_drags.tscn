@@ -24,11 +24,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbyPart"]
 
-[node name="MouseDetector" type="Control" parent="."]
+[node name="MouseDetector" type="ColorRect" parent="."]
 margin_left = -50.0
 margin_top = -50.0
 margin_right = 50.0
 margin_bottom = 50.0
+color = Color( 0.0705882, 0.0666667, 0.482353, 0.168627 )
 
 [connection signal="gui_input" from="MouseDetector" to="." method="_on_MouseDetector_gui_input"]
 [connection signal="mouse_entered" from="MouseDetector" to="." method="_on_MouseDetector_mouse_entered"]

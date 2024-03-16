@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "CargoBase",
+"language": "GDScript",
+"path": "res://stuff/cargo/cargo_base.gd"
+} ]
+_global_script_class_icons={
+"CargoBase": ""
+}
+
 [application]
 
 config/name="Parasite"
@@ -40,6 +50,8 @@ common/drop_mouse_on_gui_input_disabled=true
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_gravity_vector=Vector2( 0, 4 )
+2d/default_linear_damp=0.5
 
 [rendering]
 

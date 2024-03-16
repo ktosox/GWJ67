@@ -108,6 +108,7 @@ radial_accel = 2.0
 tangential_accel = 2.0
 damping = 34.87
 damping_random = 0.7
+scale_amount = 2.0
 color = Color( 0.172549, 0.886275, 0, 1 )
 color_ramp = SubResource( 12 )
 hue_variation = 0.28

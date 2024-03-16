@@ -16,6 +16,8 @@ func flip_gravivty():
 	gravity_vec.y = new_direction
 	$Beam.material.set("shader_param/scorll1",Vector2(0,new_direction * -0.385))
 	$Beam.material.set("shader_param/scorll2",Vector2(0,new_direction * -0.45))
+	for cargo in get_overlapping_bodies():
+		cargo.sleeping = false
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

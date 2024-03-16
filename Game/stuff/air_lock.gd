@@ -25,6 +25,8 @@ func _on_Right_pressed():
 	$DoorRight.visible = !$DoorRight.visible
 	$DoorRight/Collider.disabled = !$DoorRight/Collider.disabled
 	if !$DoorRight.visible:
+		for cargo in $VacumOfSpace.get_overlapping_bodies():
+			cargo.apply_central_impulse(Vector2(-100,0)) # otherwise the get stuck sleeping maybe?
 		$VacumOfSpace.space_override = Area2D.SPACE_OVERRIDE_REPLACE
 	else:
 		$VacumOfSpace.space_override = Area2D.SPACE_OVERRIDE_DISABLED

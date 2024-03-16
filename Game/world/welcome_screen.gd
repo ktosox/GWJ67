@@ -4,9 +4,11 @@ var first_day = true
 
 func start_game():
 	if first_day:
-		print("switch to day 1 introduction")
+		GM.load_pre_briefing(1)
+
 	else:
-		print("switch to day 2 introduction")
+		GM.load_pre_briefing(2)
+
 	pass
 
 

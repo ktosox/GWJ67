@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-var all_voice_lines = {"test": "testing the text printer for testing purposes"} # key paired with text
+var all_voice_lines = {"test": "testing the text printer for testing purposes; testing the text printer for testing purposes; testing the text printer for testing purposes; testing the text printer for testing purposes"} # key paired with text
 
 
 

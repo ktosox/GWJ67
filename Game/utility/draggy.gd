@@ -25,6 +25,7 @@ func drag_ended():
 	drag = false
 	$TractorBeam.points[1] = Vector2.ZERO
 	node_a = NodePath()
+	global_position = get_parent().global_position
 	$GrabbyPart.global_position = global_position
 	pass
 
@@ -42,6 +43,7 @@ func _input(event):
 func _on_MouseDetector_gui_input(event):
 	if event.is_class("InputEventMouseButton") and !drag :
 		if event.button_index == 1 and event.is_pressed():
+			global_position = get_global_mouse_position()
 			drag = true
 			node_a = $GrabbyPart.get_path()
 			emit_signal("dragging",true)
