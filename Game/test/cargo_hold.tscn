@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://stuff/cargo/barrel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/cargo_hold/time_skip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test/cargo_hold.gd" type="Script" id=2]
 [ext_resource path="res://stuff/gravity_elevator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://stuff/air_lock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stuff/cargo_deleter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://stuff/parasite.tscn" type="PackedScene" id=6]
 [ext_resource path="res://stuff/bio_scanner.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -19,7 +18,7 @@ extents = Vector2( 355, 20 )
 
 [node name="CargoHold" type="Node2D"]
 script = ExtResource( 2 )
-travel_speed = 0
+travel_speed = 1
 
 [node name="OuterWalls" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -85,9 +84,9 @@ color = Color( 1, 0, 0, 1 )
 polygon = PoolVector2Array( 1, 41, 234, 43, 233, -187, -1, -192 )
 
 [node name="TextureProgress" type="ProgressBar" parent="."]
-margin_left = 8.0
+margin_left = 6.0
 margin_top = 6.0
-margin_right = 1186.0
+margin_right = 1184.0
 margin_bottom = 46.0
 
 [node name="Bio-Scanner" parent="." instance=ExtResource( 7 )]
@@ -96,27 +95,20 @@ position = Vector2( 355, 133 )
 [node name="AirLock" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1095, 332 )
 
-[node name="Barrel" parent="." instance=ExtResource( 1 )]
-position = Vector2( 617, 575 )
-
-[node name="Barrel2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 494, 576 )
-
-[node name="Parasite" parent="Barrel2" instance=ExtResource( 6 )]
-position = Vector2( 0, 1 )
-
-[node name="Barrel3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 327, 581 )
-
 [node name="Button" type="Button" parent="."]
-margin_left = 1213.0
-margin_top = 8.0
-margin_right = 1251.0
-margin_bottom = 28.0
-text = "skip"
+margin_left = 1196.0
+margin_top = 22.0
+margin_right = 1273.0
+margin_bottom = 42.0
+text = "take a nap"
 
 [node name="GravityElevator" parent="." instance=ExtResource( 3 )]
 position = Vector2( 776, -10 )
 
 [node name="CargoDeleter" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1434, 254 )
+
+[node name="TimeSkip" parent="." instance=ExtResource( 1 )]
+margin_bottom = 720.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

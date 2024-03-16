@@ -31,3 +31,8 @@ func _process(delta):
 	if distance_traveled > 100:
 		end_travel()
 	pass
+
+
+func _on_Button_pressed():
+	$TimeSkip.sleep()
+	pass # Replace with function body.
