@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=1]
+[ext_resource path="res://resources/textures/seamless_texture10.png" type="Texture" id=2]
+[ext_resource path="res://resources/textures/seamless_texture8.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=3]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.122581, 0.632258 )
+colors = PoolColorArray( 0.207843, 0.184314, 0.137255, 1, 0.305882, 0.309804, 0.239216, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+fill = 1
+fill_from = Vector2( 0.0277778, 0.221065 )
+fill_to = Vector2( 0.12037, 0.972222 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+shader_param/scorll1 = Vector2( 0, -0.143 )
+shader_param/scorll2 = Vector2( 0, 0.007 )
+shader_param/power1 = -0.292
+shader_param/power2 = 0.535595
+shader_param/texture1 = ExtResource( 3 )
+shader_param/texture2 = ExtResource( 2 )
+shader_param/color_map = SubResource( 4 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/power2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, -0.5, 1 ),
+"update": 0,
+"values": [ 0.6, 0.5, 0.6 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/power2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.518 ]
+}
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource( 5 )
+margin_right = 894.0
+margin_bottom = 720.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+playback_speed = 0.4
+"anims/New Anim" = SubResource( 6 )
+anims/RESET = SubResource( 7 )

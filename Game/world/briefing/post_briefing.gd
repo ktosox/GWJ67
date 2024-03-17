@@ -18,8 +18,8 @@ func _ready():
 
 func add_line(text_array = []):
 	var new_line = post_line_scene.instance()
-	new_line.get_node("TextLeft").text = text_array[0]
-	new_line.get_node("TextRight").text = text_array[1]
+	new_line.get_node("TextLeft").text = " " + text_array[0]
+	new_line.get_node("TextRight").text = " " + text_array[1]
 	$PerformanceSummary.add_child(new_line)
 
 	pass

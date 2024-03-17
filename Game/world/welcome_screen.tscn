@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://world/welcome_screen.gd" type="Script" id=1]
 [ext_resource path="res://utility/space_background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/fonts/crypto_scam/Crypto Scam Italic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://utility/display.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -21,6 +22,12 @@ margin_left = 228.0
 margin_top = 85.0
 margin_right = 1086.0
 margin_bottom = 579.0
+
+[node name="Display" parent="." instance=ExtResource( 4 )]
+margin_left = 257.0
+margin_top = 164.0
+margin_right = 950.0
+margin_bottom = 564.0
 
 [node name="Label" type="Label" parent="."]
 margin_left = 286.0

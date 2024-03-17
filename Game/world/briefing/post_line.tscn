@@ -69,9 +69,10 @@ color = Color( 0.239216, 0.831373, 0.568627, 0.32549 )
 
 [node name="TextLeft" type="RichTextLabel" parent="."]
 margin_left = 84.0
-margin_right = 751.0
+margin_right = 560.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.196078, 0.172549, 0.14902, 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 visible_characters = 0
 percent_visible = 0.0
@@ -79,18 +80,19 @@ text = "adadadadad"
 scroll_active = false
 
 [node name="Spliter" type="ColorRect" parent="."]
-margin_left = 755.0
-margin_right = 765.0
+margin_left = 564.0
+margin_right = 574.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 10, 0 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="TextRight" type="RichTextLabel" parent="."]
-margin_left = 769.0
+margin_left = 578.0
 margin_right = 769.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 0.196078, 0.172549, 0.14902, 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 text = "-60"
 scroll_active = false
