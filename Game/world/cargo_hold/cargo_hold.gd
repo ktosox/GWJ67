@@ -12,7 +12,7 @@ var starting_cargo_top = {
 	2 : [1,1,1,1,1,1,0,0],
 	3 : [1,1,1,1,1,1,1,1],
 }
-var starting_cargo = 0
+var starting_cargo_amount = 0
 
 var elevator_scene = preload("res://stuff/gravity_elevator.tscn")
 
@@ -39,24 +39,28 @@ func load_level():
 	var top_slots = $UpperCargoSpawn.get_children()
 	while desired_top_cargo.size() > 0 :
 		create_cargo(desired_top_cargo.pop_front(),top_slots.pop_front().global_position)
-		starting_cargo += 1
+		
 			
 			
 	var all_cargo = get_tree().get_nodes_in_group("Cargo")
 	var parasite = load("res://stuff/parasite.tscn").instance()
 	match level:
 		2:
+			travel_speed = 1.4
 			all_cargo[randi()%all_cargo.size()].add_child(parasite)
 			
 		3:
+			travel_speed = 1.1
 			var first_pick = randi()%all_cargo.size()
 			all_cargo[first_pick].add_child(parasite)
 			all_cargo.remove(first_pick)
+			parasite = load("res://stuff/parasite.tscn").instance()
 			all_cargo[randi()%all_cargo.size()].add_child(parasite)
 	pass
 
 func end_travel():
 	calculate_cargo_state()
+	Engine.time_scale = 1.0
 	GM.load_post_briefing()
 
 	
@@ -72,20 +76,24 @@ func create_cargo(type : int, location : Vector2):
 			new_cargo = barrel_scene.instance()
 	new_cargo.global_position = location
 	add_child(new_cargo)
+	starting_cargo_amount += 1
 
 func calculate_cargo_state():
-
+	print(starting_cargo_amount)
 	var all_cargo = get_tree().get_nodes_in_group("Cargo")
 	var infested_cargo = []
 	for cargo in all_cargo:
 		if cargo.get_meta("infested"):
 			infested_cargo.push_back(cargo)
 	var list_of_things_to_display = {}
-	list_of_things_to_display["cargo infested"] = String(infested_cargo.size())
-	list_of_things_to_display["cargo lost"] = String(starting_cargo - all_cargo.size())
+	list_of_things_to_display["cargo infested"] = String(-infested_cargo.size())
+	var cargo_lost = starting_cargo_amount - all_cargo.size()
+	list_of_things_to_display["cargo lost"] = String(cargo_lost)
 	list_of_things_to_display["cargo secured"] = String(all_cargo.size())
+	var money_gained = starting_cargo_amount * 30 - (40 * cargo_lost) - (10 * infested_cargo.size())
+	list_of_things_to_display["pay change"] = String(money_gained)
 	GM.list_of_things_to_display = list_of_things_to_display.duplicate()
-	GM.current_balance += 30 * all_cargo.size() - (10 * infested_cargo.size())
+	GM.current_balance += money_gained
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

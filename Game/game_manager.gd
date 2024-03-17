@@ -3,7 +3,7 @@ extends Node
 # stores game progress
 var current_balance = 0
 
-var current_day = 1
+var current_day = 3
 
 # manages switching between scenes levels
 
