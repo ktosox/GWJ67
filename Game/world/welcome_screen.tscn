@@ -7,7 +7,7 @@
 [ext_resource path="res://world/default_theme.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 40
 use_filter = true
 font_data = ExtResource( 3 )
 
@@ -33,37 +33,43 @@ margin_right = 950.0
 margin_bottom = 564.0
 
 [node name="Label" type="Label" parent="."]
-margin_left = 306.0
-margin_top = 279.0
-margin_right = 1286.0
-margin_bottom = 311.0
-text = "press button to apply to position of \"cargo quality assurance specialist\""
+margin_left = 304.0
+margin_top = 265.0
+margin_right = 1284.0
+margin_bottom = 472.0
+text = "Is hiring for the position of:
+Cargo Quality Assurance Specialist
+Requirements:
+Competence, Discretion and Confidence
+Offers:
+Performance based compensation"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 515.0
 margin_top = 558.0
 margin_right = 679.0
 margin_bottom = 596.0
-text = "start game"
+text = "apply"
 
 [node name="CheckBox" type="CheckBox" parent="."]
 margin_left = 303.0
-margin_top = 474.0
-margin_right = 618.0
-margin_bottom = 514.0
+margin_top = 484.0
+margin_right = 819.0
+margin_bottom = 524.0
 pressed = true
-text = "is this your first day?"
+text = "first time applying for this position?"
 
 [node name="Label3" type="Label" parent="."]
 anchor_right = 1.0
-margin_left = -37.0
-margin_top = 207.0
-margin_right = -37.0
-margin_bottom = 276.0
+margin_left = 304.0
+margin_top = 179.0
+margin_right = -393.0
+margin_bottom = 298.0
 custom_fonts/font = SubResource( 1 )
-text = "GAME NAME"
+text = "Bloodsucker Cargo "
 align = 1
 valign = 1
 
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

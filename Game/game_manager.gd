@@ -3,9 +3,7 @@ extends Node
 # stores game progress
 var current_balance = 0
 
-var current_day = 2
-
-var cargo_result = []
+var current_day = 1
 
 # manages switching between scenes levels
 
@@ -16,6 +14,8 @@ var post_briefing_scene = preload("res://world/briefing/post_briefing.tscn")
 var cargo_hold = preload("res://world/cargo_hold/cargo_hold.tscn")
 
 # holds references to utility scenes
+
+var list_of_things_to_display = {}
 
 var current_text_printer
 
@@ -34,7 +34,7 @@ func load_pre_briefing(level = -1):
 	pass
 
 func load_post_briefing():
-	assert(!cargo_result.empty())
+
 	get_tree().change_scene_to(post_briefing_scene)
 	
 	pass

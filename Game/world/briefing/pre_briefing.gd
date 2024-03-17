@@ -8,6 +8,10 @@ func load_day(day = 1):
 	for page in $AllPages.get_children() :
 		page.visible = false
 	get_node("AllPages/Page" + String(day)).visible = true
+	yield(get_tree().create_timer(1.0),"timeout")
+	$TextPrinter.play_line("day"+String(day))
+	yield(get_tree().create_timer(4.0),"timeout")
+	$Button.visible = true
 	pass
 
 

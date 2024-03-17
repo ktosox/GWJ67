@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://utility/text_printer.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/masa_practice/Masa Practice.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/SFX/robot from the ocean 9.wav" type="AudioStream" id=3]
+[ext_resource path="res://resources/SFX/robot from the ocean 4.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
@@ -20,10 +22,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0.1, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Start:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -39,6 +53,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Start:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -76,4 +114,13 @@ anims/Load = SubResource( 1 )
 anims/RESET = SubResource( 3 )
 anims/Skip = SubResource( 2 )
 
-[node name="Voice" type="AudioStreamPlayer" parent="."]
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.0
+pitch_scale = 2.0
+
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 1.2
+
+[connection signal="animation_finished" from="Animator" to="." method="_on_Animator_animation_finished"]

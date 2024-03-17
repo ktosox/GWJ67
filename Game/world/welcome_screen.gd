@@ -23,3 +23,7 @@ func _on_Button_pressed():
 func _on_CheckBox_toggled(button_pressed):
 	first_day = button_pressed
 	pass # Replace with function body.
+
+
+func _on_Button_button_down():
+	pass # Replace with function body.

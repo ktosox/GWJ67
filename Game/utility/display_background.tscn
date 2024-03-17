@@ -7,7 +7,7 @@
 [sub_resource type="Gradient" id=3]
 interpolation_mode = 2
 offsets = PoolRealArray( 0.122581, 0.632258 )
-colors = PoolColorArray( 0.207843, 0.184314, 0.137255, 1, 0.305882, 0.309804, 0.239216, 1 )
+colors = PoolColorArray( 0.316406, 0.306931, 0.287979, 1, 0.382858, 0.386719, 0.31723, 1 )
 
 [sub_resource type="GradientTexture2D" id=4]
 gradient = SubResource( 3 )
@@ -20,7 +20,7 @@ shader = ExtResource( 1 )
 shader_param/scorll1 = Vector2( 0, -0.143 )
 shader_param/scorll2 = Vector2( 0, 0.007 )
 shader_param/power1 = -0.292
-shader_param/power2 = 0.535595
+shader_param/power2 = 0.518
 shader_param/texture1 = ExtResource( 3 )
 shader_param/texture2 = ExtResource( 2 )
 shader_param/color_map = SubResource( 4 )
