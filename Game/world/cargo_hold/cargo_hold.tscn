@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://world/cargo_hold/time_skip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/cargo_hold/cargo_hold.gd" type="Script" id=2]
+[ext_resource path="res://stuff/cargo/Crate.tscn" type="PackedScene" id=3]
 [ext_resource path="res://stuff/air_lock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stuff/cargo_deleter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://stuff/bio_scanner.tscn" type="PackedScene" id=7]
@@ -30,7 +31,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OuterWalls"]
-position = Vector2( -60, 364 )
+position = Vector2( -17, 368 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OuterWalls"]
@@ -172,4 +173,8 @@ position = Vector2( 728, -12 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 42, 366, 43, 618, 1155, 621, 1150, 370 )
 
+[node name="Crate" parent="." instance=ExtResource( 3 )]
+position = Vector2( 767, 282 )
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="body_entered" from="CargoDeleter" to="." method="_on_CargoDeleter_body_entered"]

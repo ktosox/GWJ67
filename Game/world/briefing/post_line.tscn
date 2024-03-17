@@ -62,10 +62,11 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.313726 )
 margin_right = 80.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 80, 0 )
-color = Color( 0.239216, 0.831373, 0.568627, 0.32549 )
+color = Color( 0.188235, 0.831373, 0.0313726, 1 )
 
 [node name="TextLeft" type="RichTextLabel" parent="."]
 margin_left = 84.0

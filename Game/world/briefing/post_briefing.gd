@@ -20,6 +20,8 @@ func add_line(text_array = []):
 	var new_line = post_line_scene.instance()
 	new_line.get_node("TextLeft").text = " " + text_array[0]
 	new_line.get_node("TextRight").text = " " + text_array[1]
+	if int(text_array[1]) < 1:
+		new_line.get_node("ColorRect").color = ColorN("red")
 	$PerformanceSummary.add_child(new_line)
 
 	pass
@@ -43,4 +45,5 @@ func show_current_balance():
 
 
 func _on_Button_pressed():
+	
 	pass # Replace with function body.

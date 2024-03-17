@@ -82,3 +82,8 @@ func _process(delta):
 func _on_Button_pressed():
 	$TimeSkip.sleep()
 	pass # Replace with function body.
+
+
+func _on_CargoDeleter_body_entered(body):
+	
+	pass # Replace with function body.

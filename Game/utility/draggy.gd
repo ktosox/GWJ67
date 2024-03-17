@@ -23,6 +23,8 @@ func _physics_process(delta):
 func drag_ended():
 	emit_signal("dragging",false)
 	drag = false
+	$GrabSound.stop()
+	$LoseSound.play()
 	$TractorBeam.points[1] = Vector2.ZERO
 	node_a = NodePath()
 	global_position = get_parent().global_position
@@ -46,6 +48,9 @@ func _on_MouseDetector_gui_input(event):
 			global_position = get_global_mouse_position()
 			drag = true
 			node_a = $GrabbyPart.get_path()
+			$GrabSound.pitch_scale = 0.6 + randf() * 0.18
+			$GrabSound.play()
+			$GrabStart.play("New Anim")
 			emit_signal("dragging",true)
 
 	pass # Replace with function body.

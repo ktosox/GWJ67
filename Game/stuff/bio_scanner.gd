@@ -18,8 +18,9 @@ func _ready():
 func start_scan():
 	scanning = true
 	$ScanSlider/Draggy.visible = false
-	
+
 	$ScanSlider/ScanArea/Animator.play("Scan")
+	
 	pass
 
 func complete_scan():
@@ -28,6 +29,7 @@ func complete_scan():
 		print("infested")
 	else:
 		print("clean")
+	$Ding.play()
 	end_scan()
 	
 
@@ -41,6 +43,7 @@ func end_scan():
 func scan_valid_check():
 	if cargo_in_scanner != 1:
 		print("scan error")
+		$Error.play()
 		if scanning:
 			end_scan()
 		return false

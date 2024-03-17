@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/briefing/pre_briefing.gd" type="Script" id=1]
 [ext_resource path="res://world/briefing/pre_page.tscn" type="PackedScene" id=2]
 [ext_resource path="res://utility/text_printer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/fonts/tonight_friend/Tonight Friend.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://resources/display_border.png" type="Texture" id=5]
-[ext_resource path="res://utility/display_background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://utility/display.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -17,12 +15,6 @@ font_data = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-
-[node name="ColorRect" parent="." instance=ExtResource( 6 )]
-visible = false
-margin_top = 6.0
-margin_right = 638.0
-margin_bottom = 590.0
 
 [node name="Display" parent="." instance=ExtResource( 7 )]
 margin_left = 3.0
@@ -43,6 +35,7 @@ margin_left = 44.0
 margin_top = 51.0
 margin_right = 1280.0
 margin_bottom = 651.0
+mouse_filter = 2
 alignment = 1
 
 [node name="Page1" parent="AllPages" instance=ExtResource( 2 )]
@@ -101,12 +94,14 @@ margin_right = 638.0
 margin_right = 1236.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 0, 600 )
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="StoryFluffGoesHere" type="RichTextLabel" parent="AllPages/TESTPAGE"]
 margin_right = 600.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 600, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 text = "Pilot:
 pilot name
@@ -133,13 +128,6 @@ margin_right = 1236.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 color = Color( 1, 1, 1, 0 )
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
-modulate = Color( 0.133333, 0.160784, 0.305882, 1 )
-margin_right = 645.0
-margin_bottom = 606.0
-texture = ExtResource( 5 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 

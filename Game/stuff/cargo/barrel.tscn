@@ -7,6 +7,7 @@
 extents = Vector2( 20, 35 )
 
 [node name="Barrel" instance=ExtResource( 1 )]
+mass = 2.0
 script = ExtResource( 2 )
 
 [node name="MouseDetector" parent="Draggy" index="2"]

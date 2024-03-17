@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/woosh 25.wav-d203cf4db89447171a4ac17a549f9d4f.sample"
+path="res://.import/oven ding 1.wav-0a3b8a884c12a91eecd704ebd7d241bf.sample"
 
 [deps]
 
-source_file="res://resources/SFX/woosh 25.wav"
-dest_files=[ "res://.import/woosh 25.wav-d203cf4db89447171a4ac17a549f9d4f.sample" ]
+source_file="res://resources/SFX/oven ding 1.wav"
+dest_files=[ "res://.import/oven ding 1.wav-0a3b8a884c12a91eecd704ebd7d241bf.sample" ]
 
 [params]
 
@@ -15,7 +15,7 @@ force/8_bit=false
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
-edit/trim=true
+edit/trim=false
 edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0

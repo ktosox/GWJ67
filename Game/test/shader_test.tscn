@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=1]
 [ext_resource path="res://resources/shaders/color_fade.tres" type="Shader" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://resources/textures/seamless_texture2.png" type="Texture" id=6]
 [ext_resource path="res://resources/shaders/edgles_fire.tres" type="Shader" id=7]
 [ext_resource path="res://resources/textures/seamless_texture11.png" type="Texture" id=8]
+[ext_resource path="res://stuff/air_lock.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -68,3 +69,6 @@ texture = ExtResource( 6 )
 __meta__ = {
 "_editor_description_": "Needs more work"
 }
+
+[node name="AirLock" parent="." instance=ExtResource( 9 )]
+position = Vector2( 793, 676 )
