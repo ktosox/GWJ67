@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/goo 6.wav-839b9ea3f7cd99a543e40bb121c2a2a8.sample"
+
+[deps]
+
+source_file="res://resources/SFX/goo 6.wav"
+dest_files=[ "res://.import/goo 6.wav-839b9ea3f7cd99a543e40bb121c2a2a8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
