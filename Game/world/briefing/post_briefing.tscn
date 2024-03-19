@@ -1,16 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/briefing/post_briefing.gd" type="Script" id=1]
 [ext_resource path="res://world/default_theme.tres" type="Theme" id=2]
 [ext_resource path="res://utility/display_background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utility/display.tscn" type="PackedScene" id=4]
 [ext_resource path="res://utility/text_printer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://utility/watch.tscn" type="PackedScene" id=6]
 
 [node name="Post-flightBriefing" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[node name="Watch" parent="." instance=ExtResource( 6 )]
+margin_left = 971.0
+margin_top = 170.0
+margin_right = -35.0
+margin_bottom = -233.0
 
 [node name="Display" parent="." instance=ExtResource( 4 )]
 margin_left = 59.0
@@ -49,12 +56,12 @@ rect_min_size = Vector2( 0, 2 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 970.0
-margin_top = 143.0
-margin_right = 1228.0
-margin_bottom = 350.0
+margin_left = 1004.0
+margin_top = 230.0
+margin_right = 1218.0
+margin_bottom = 437.0
 custom_colors/font_color = Color( 0.780392, 0.780392, 0.737255, 1 )
-text = "your bank account:
+text = "bank account:
 35.23
 loan mount:
 200

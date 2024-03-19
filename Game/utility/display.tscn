@@ -1,9 +1,62 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://resources/display_border.png" type="Texture" id=1]
-[ext_resource path="res://utility/display_background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/shaders/scroll_shader.tres" type="Shader" id=2]
 [ext_resource path="res://resources/particles/orb1.png" type="Texture" id=3]
-[ext_resource path="res://resources/particles/orb3.png" type="Texture" id=4]
+[ext_resource path="res://resources/textures/seamless_texture8.png" type="Texture" id=5]
+[ext_resource path="res://resources/textures/seamless_texture10.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=3]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.122581, 0.632258 )
+colors = PoolColorArray( 0.316406, 0.306931, 0.287979, 1, 0.382858, 0.386719, 0.31723, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+fill = 1
+fill_from = Vector2( 0.0277778, 0.221065 )
+fill_to = Vector2( 0.12037, 0.972222 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 2 )
+shader_param/scorll1 = Vector2( 0, -0.143 )
+shader_param/scorll2 = Vector2( 0, 0.007 )
+shader_param/power1 = -0.292
+shader_param/power2 = 0.518
+shader_param/texture1 = ExtResource( 5 )
+shader_param/texture2 = ExtResource( 6 )
+shader_param/color_map = SubResource( 4 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/power2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, -0.5, 1 ),
+"update": 0,
+"values": [ 0.6, 0.5, 0.6 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/power2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.518 ]
+}
 
 [node name="Display" type="NinePatchRect"]
 self_modulate = Color( 0.207843, 0.215686, 0.301961, 1 )
@@ -30,75 +83,14 @@ patch_margin_top = 200
 patch_margin_right = 200
 patch_margin_bottom = 200
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
-modulate = Color( 0.207843, 0.215686, 0.301961, 1 )
+[node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
-anchor_top = 1.0
-anchor_bottom = 1.0
-rect_scale = Vector2( 0.5, 0.5 )
-use_top_left = true
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
-margin_left = -256.0
-margin_top = -256.0
-margin_right = 256.0
-margin_bottom = 256.0
-texture = ExtResource( 4 )
-
-[node name="CenterContainer2" type="CenterContainer" parent="."]
-visible = false
-modulate = Color( 0.207843, 0.215686, 0.301961, 1 )
-show_behind_parent = true
-rect_scale = Vector2( 0.5, 0.5 )
-use_top_left = true
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer2"]
-visible = false
-margin_left = -256.0
-margin_top = -256.0
-margin_right = 256.0
-margin_bottom = 256.0
-texture = ExtResource( 4 )
-
-[node name="CenterContainer3" type="CenterContainer" parent="."]
-visible = false
-modulate = Color( 0.207843, 0.215686, 0.301961, 1 )
-show_behind_parent = true
-anchor_left = 1.0
-anchor_top = 1.0
+material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_scale = Vector2( 0.5, 0.5 )
-use_top_left = true
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer3"]
-visible = false
-margin_left = -256.0
-margin_top = -256.0
-margin_right = 256.0
-margin_bottom = 256.0
-texture = ExtResource( 4 )
-
-[node name="CenterContainer4" type="CenterContainer" parent="."]
-visible = false
-modulate = Color( 0.207843, 0.215686, 0.301961, 1 )
-show_behind_parent = true
-anchor_left = 1.0
-anchor_right = 1.0
-rect_scale = Vector2( 0.5, 0.5 )
-use_top_left = true
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer4"]
-margin_left = -256.0
-margin_top = -256.0
-margin_right = 256.0
-margin_bottom = 256.0
-texture = ExtResource( 4 )
-
-[node name="ColorRect" parent="." instance=ExtResource( 2 )]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 0.0
-margin_bottom = 0.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+autoplay = "New Anim"
+playback_speed = 0.4
+"anims/New Anim" = SubResource( 6 )
+anims/RESET = SubResource( 7 )
