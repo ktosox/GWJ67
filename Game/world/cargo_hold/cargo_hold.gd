@@ -85,12 +85,12 @@ func calculate_cargo_state():
 	for cargo in all_cargo:
 		if cargo.get_meta("infested"):
 			infested_cargo.push_back(cargo)
+	var cargo_lost = starting_cargo_amount - all_cargo.size()
+	var money_gained = starting_cargo_amount * 30 - (40 * cargo_lost) - (10 * infested_cargo.size())
 	var list_of_things_to_display = {}
 	list_of_things_to_display["cargo infested"] = String(-infested_cargo.size())
-	var cargo_lost = starting_cargo_amount - all_cargo.size()
 	list_of_things_to_display["cargo lost"] = String(cargo_lost)
 	list_of_things_to_display["cargo secured"] = String(all_cargo.size())
-	var money_gained = starting_cargo_amount * 30 - (40 * cargo_lost) - (10 * infested_cargo.size())
 	list_of_things_to_display["pay change"] = String(money_gained)
 	GM.list_of_things_to_display = list_of_things_to_display.duplicate()
 	GM.current_balance += money_gained

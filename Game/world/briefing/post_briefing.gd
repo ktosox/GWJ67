@@ -12,7 +12,8 @@ var post_line_scene = preload("res://world/briefing/post_line.tscn")
 
 func _ready():
 	$Button.visible = false
-	assert(!GM.list_of_things_to_display.empty())
+	if(GM.list_of_things_to_display.empty()):
+		GM.list_of_things_to_display = {"test value 1":"30","test value 2":"10","test value 3":"30","test value 4":"-10"}
 
 	load_summary()
 	
@@ -35,15 +36,11 @@ func load_summary():
 		yield(get_tree().create_timer(0.8),"timeout")
 	
 	yield(get_tree().create_timer(0.8),"timeout")
-	add_line([" Current balance",String(GM.current_balance)])
+	add_line([" Current payout",String(GM.current_balance)])
 	$Button.visible = true
 	pass
 
 
-
-func show_current_balance():
-	$CurrentBalance.text = "Current balance: " + String(GM.current_balance)
-	pass
 
 
 func _on_Button_pressed():
