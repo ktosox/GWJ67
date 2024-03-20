@@ -1,37 +1,62 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://utility/space_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://utility/display.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/default_theme.tres" type="Theme" id=3]
+[ext_resource path="res://stuff/cargo/barrel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/lost/lose_screen_space.gd" type="Script" id=5]
 
 [node name="LoseScreenSpace" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="Space" parent="." instance=ExtResource( 1 )]
 
 [node name="Display" parent="." instance=ExtResource( 2 )]
 margin_left = 323.0
 margin_top = 161.0
-margin_right = 947.0
-margin_bottom = 573.0
+margin_right = 914.0
+margin_bottom = 459.0
 
 [node name="Label" type="Label" parent="."]
-margin_left = 591.0
-margin_top = 35.0
-margin_right = 741.0
-margin_bottom = 49.0
-text = "CONGRATUL;AIONTS!W"
+margin_left = 483.0
+margin_top = 211.0
+margin_right = 780.0
+margin_bottom = 243.0
+text = "CONGRATULATIONS!"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 437.0
-margin_top = 224.0
-margin_right = 806.0
-margin_bottom = 238.0
-text = "you have been promoted to the postion of: dumped cargo"
+margin_left = 367.0
+margin_top = 280.0
+margin_right = 1122.0
+margin_bottom = 347.0
+text = "you have been promoted 
+to the postion of: dumped cargo"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 632.0
-margin_top = 445.0
-margin_right = 686.0
-margin_bottom = 465.0
+margin_left = 563.0
+margin_top = 453.0
+margin_right = 684.0
+margin_bottom = 491.0
 text = "restart"
+
+[node name="Dumped" type="Node2D" parent="."]
+
+[node name="Barrel" parent="Dumped" instance=ExtResource( 4 )]
+position = Vector2( 191, 598 )
+gravity_scale = 0.0
+applied_torque = -900.0
+
+[node name="Barrel2" parent="Dumped" instance=ExtResource( 4 )]
+position = Vector2( 1080, 386 )
+gravity_scale = 0.0
+applied_torque = 2408.0
+
+[node name="Barrel3" parent="Dumped" instance=ExtResource( 4 )]
+position = Vector2( 129, 116 )
+gravity_scale = 0.0
+applied_torque = 800.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

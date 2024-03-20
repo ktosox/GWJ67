@@ -28,10 +28,12 @@ func complete_scan():
 	if cargo.get_meta("infested"):
 		print("infested")
 		$Label.modulate = ColorN("red")
+		$Label.visible = true
 		$Label.text = "!!!"
 	else:
 		print("clean")
 		$Label.modulate = ColorN("green")
+		$Label.visible = true
 		$Label.text = "OK"
 	$Ding.play()
 	end_scan()
@@ -49,6 +51,7 @@ func scan_valid_check():
 		print("scan error")
 		$Label.modulate = ColorN("white")
 		$Label.text = "???"
+		$Label.visible = true
 		$Error.play()
 		if scanning:
 			end_scan()
@@ -67,8 +70,8 @@ func update_cargo_count():
 	cargo_in_scanner = $ScanSlider/ScanArea.get_overlapping_bodies().size()
 	if scanning :
 		scan_valid_check()
-	$Label.modulate = ColorN("white")
-	$Label.text = "???"
+
+	$Label.visible = false
 
 func _on_ScanArea_body_entered(body):
 	update_cargo_count()
