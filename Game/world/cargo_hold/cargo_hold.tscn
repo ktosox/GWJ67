@@ -169,6 +169,7 @@ shape = SubResource( 6 )
 position = Vector2( 728, -12 )
 
 [node name="BottomBlackout" type="Polygon2D" parent="DaySpecificStuff"]
+visible = false
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 42, 366, 43, 618, 1155, 621, 1150, 370 )
 

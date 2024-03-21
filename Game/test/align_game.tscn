@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/middle_ring.png" type="Texture" id=1]
 [ext_resource path="res://resources/inner_ring.png" type="Texture" id=2]
 [ext_resource path="res://resources/out_ring.png" type="Texture" id=3]
 [ext_resource path="res://test/align_game.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 90 )
 
 [node name="align_game" type="Node2D"]
 script = ExtResource( 4 )
@@ -25,6 +31,14 @@ texture = ExtResource( 3 )
 [node name="Line2D" type="Line2D" parent="center/OutRing"]
 points = PoolVector2Array( -3, -239, -2, -179 )
 
+[node name="Point" type="Area2D" parent="center/OutRing"]
+position = Vector2( 0, -240 )
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="center/OutRing/Point"]
+shape = SubResource( 1 )
+
 [node name="MiddleRing" type="Sprite" parent="center"]
 texture = ExtResource( 1 )
 
@@ -32,8 +46,26 @@ texture = ExtResource( 1 )
 position = Vector2( -240, -240 )
 points = PoolVector2Array( 236, 64, 237, 119 )
 
+[node name="Line" type="Area2D" parent="center/MiddleRing"]
+position = Vector2( 0, -180 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="center/MiddleRing/Line"]
+shape = SubResource( 2 )
+
 [node name="InnerRing" type="Sprite" parent="center"]
 texture = ExtResource( 2 )
 
 [node name="Line2D" type="Line2D" parent="center/InnerRing"]
 points = PoolVector2Array( -4, -111, -2, -3 )
+
+[node name="Point" type="Area2D" parent="center/InnerRing"]
+position = Vector2( 0, -120 )
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="center/InnerRing/Point"]
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="center/MiddleRing/Line" to="." method="_on_Line_area_entered"]
