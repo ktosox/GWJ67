@@ -1,9 +1,11 @@
 extends RichTextLabel
 
 var all_voice_lines = {"test" : "testing the text printer for testing purposes; testing the text printer for testing purposes; testing the text printer for testing purposes; testing the text printer for testing purposes",
-"day1" : "Welcome aboard the Bloodsucker! We specialize in express transport of live cargo! Your job will be scanning the cargo mid flight, and dumping any infested cargo through the airlock!",
-"day2" : "blahagadfg",
+"day2" : "We specialize in express transport of live cargo! Your job will be inspecting the cargo mid flight for any parasites. Dump any infested cargo through the airlock, preferably before stuff starts crawling out of it.",
+"day1" : "Welcome aboard! We need to launch immediatly to meet the delivery deadline, so I'll explain your role on our next brieinfing. I already checked the cargo, but feel free to try out the scanner.",
 "day3" : "blahagadfg",
+"day4" : "blahagadfg",
+"day5" : "blahagadfg",
 } # key paired with text
 
 
