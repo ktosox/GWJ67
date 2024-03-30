@@ -95,11 +95,6 @@ width = 40.0
 position = Vector2( 76, 71 )
 polygon = PoolVector2Array( -29, 93, 643, 100, 647, 2, -33, 4 )
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-position = Vector2( 49, 568 )
-color = Color( 1, 0, 0, 1 )
-polygon = PoolVector2Array( 1, 41, 234, 43, 233, -187, -1, -192 )
-
 [node name="TextureProgress" type="ProgressBar" parent="."]
 margin_left = 6.0
 margin_top = 6.0
@@ -173,5 +168,15 @@ visible = false
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 42, 366, 43, 618, 1155, 621, 1150, 370 )
 
+[node name="LowerCargoSpawn" type="Node2D" parent="."]
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 944.0
+margin_top = 82.0
+margin_right = 1022.0
+margin_bottom = 102.0
+text = "bump test"
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="body_entered" from="CargoDeleter" to="." method="_on_CargoDeleter_body_entered"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

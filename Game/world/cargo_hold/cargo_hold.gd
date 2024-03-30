@@ -105,6 +105,13 @@ func _process(delta):
 	pass
 
 
+func bump_all(power = 800):
+	var all_cargo = get_tree().get_nodes_in_group("Cargo")
+	for cargo in all_cargo:
+		cargo.apply_impulse(Vector2(rand_range(-10,10),-20),Vector2(0,-1).rotated(randf()-0.5) * power * (2 - randf()) )
+	pass
+
+
 func _on_Button_pressed():
 	$TimeSkip.sleep()
 	pass # Replace with function body.
@@ -112,4 +119,9 @@ func _on_Button_pressed():
 
 func _on_CargoDeleter_body_entered(body):
 	
+	pass # Replace with function body.
+
+
+func _on_Button2_pressed():
+	bump_all()
 	pass # Replace with function body.
