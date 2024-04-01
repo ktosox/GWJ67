@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://stuff/cargo/cargo_spawner.gd" type="Script" id=1]
+
+[node name="CargoSpawner" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="LowerSpawn" type="Node2D" parent="."]
+position = Vector2( 468, 555 )
+
+[node name="Position2D7" type="Position2D" parent="LowerSpawn"]
+position = Vector2( -150, 0 )
+
+[node name="Position2D6" type="Position2D" parent="LowerSpawn"]
+
+[node name="Position2D5" type="Position2D" parent="LowerSpawn"]
+position = Vector2( 150, 0 )
+
+[node name="UpperSpawn" type="Node2D" parent="."]
+position = Vector2( 386, 290 )
+
+[node name="Position2D7" type="Position2D" parent="UpperSpawn"]
+position = Vector2( -300, 0 )
+
+[node name="Position2D6" type="Position2D" parent="UpperSpawn"]
+position = Vector2( -240, 0 )
+
+[node name="Position2D5" type="Position2D" parent="UpperSpawn"]
+position = Vector2( -180, 0 )
+
+[node name="Position2D4" type="Position2D" parent="UpperSpawn"]
+position = Vector2( -120, 0 )
+
+[node name="Position2D3" type="Position2D" parent="UpperSpawn"]
+position = Vector2( -60, 0 )
+
+[node name="Position2D8" type="Position2D" parent="UpperSpawn"]
+
+[node name="Position2D" type="Position2D" parent="UpperSpawn"]
+position = Vector2( 60, 0 )
+
+[node name="Position2D2" type="Position2D" parent="UpperSpawn"]
+position = Vector2( 120, 0 )

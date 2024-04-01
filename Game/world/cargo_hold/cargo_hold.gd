@@ -8,15 +8,18 @@ var distance_traveled = 0
 var cargo_state = []
 
 var starting_cargo_top = {
-	1 : [1,1,1,1,0,0,0,0],
-	2 : [1,1,1,1,1,1,0,0],
-	3 : [1,1,1,1,1,1,1,1],
+	1 : {"barrel": [4,0,0], "crate": [0]}, # type of cargo with an array [amount,infested,special]
+	2 : {"barrel": [6,1,0], "crate": [0]},
+	3 : {"barrel": [7,1,2], "crate": [0]},
+	4 : {"barrel": [5,1,2], "crate": [2,0,1]},
+	5 : {"barrel": [6,1,0], "crate": [3,1,0]},
+	6 : {"barrel": [7,1,2], "crate": [3,1,1]},
 }
 var starting_cargo_amount = 0
 
 var elevator_scene = preload("res://stuff/gravity_elevator.tscn")
 
-var barrel_scene = preload("res://stuff/cargo/barrel.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,35 +30,13 @@ func _ready():
 
 
 func load_level():
-	var level = GM.current_day
-
-#	if level > 2 :
-#		$DaySpecificStuff/ExtraShelf.queue_free()
-#		var elevator = elevator_scene.instance()
-#		elevator.position = $DaySpecificStuff/PlaceElevatorHere.position
-#		add_child(elevator)
-#		$DaySpecificStuff/BottomBlackout.queue_free()
-	var desired_top_cargo = starting_cargo_top[level]
-	var top_slots = $UpperCargoSpawn.get_children()
-	while desired_top_cargo.size() > 0 :
-		create_cargo(desired_top_cargo.pop_front(),top_slots.pop_front().global_position)
-		
-			
-			
-	var all_cargo = get_tree().get_nodes_in_group("Cargo")
-	var parasite = load("res://stuff/parasite.tscn").instance()
-	match level:
-		2:
-			travel_speed = 1.4
-			all_cargo[randi()%all_cargo.size()].add_child(parasite)
-			
-		3:
-			travel_speed = 1.1
-			var first_pick = randi()%all_cargo.size()
-			all_cargo[first_pick].add_child(parasite)
-			all_cargo.remove(first_pick)
-			parasite = load("res://stuff/parasite.tscn").instance()
-			all_cargo[randi()%all_cargo.size()].add_child(parasite)
+	var level = starting_cargo_top[GM.current_day]
+	var barrel_data = level["barrel"]
+	var crate_data = level["crate"]
+	if barrel_data[0] != 0:
+		$CargoSpawner.spawn_barrels(barrel_data[0],barrel_data[1],barrel_data[2])
+	if crate_data[0] != 0:
+		$CargoSpawner.spawn_crates(crate_data[0],crate_data[1],crate_data[2])
 	pass
 
 func end_travel():
@@ -66,17 +47,7 @@ func end_travel():
 	
 	pass
 
-func create_cargo(type : int, location : Vector2):
-	if type == 0:
-		return
-	var new_cargo
-	match type:
-		
-		1:
-			new_cargo = barrel_scene.instance()
-	new_cargo.global_position = location
-	add_child(new_cargo)
-	starting_cargo_amount += 1
+
 
 func calculate_cargo_state():
 	print(starting_cargo_amount)
