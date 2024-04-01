@@ -11,7 +11,7 @@
 extents = Vector2( 16, 90 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 200, 80 )
+extents = Vector2( 200, 89 )
 
 [node name="AirLock" type="Node2D"]
 script = ExtResource( 1 )
@@ -81,11 +81,12 @@ text = "right"
 [node name="VacumOfSpace" type="Area2D" parent="."]
 position = Vector2( 140, -80 )
 collision_layer = 0
-collision_mask = 4
+collision_mask = 12
 gravity_vec = Vector2( 6, 0 )
 gravity = 3000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VacumOfSpace"]
+position = Vector2( 0, -1 )
 shape = SubResource( 2 )
 
 [connection signal="pressed" from="Left" to="." method="_on_Left_pressed"]

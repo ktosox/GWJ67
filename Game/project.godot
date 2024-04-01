@@ -44,6 +44,7 @@ common/drop_mouse_on_gui_input_disabled=true
 2d_physics/layer_1="DO NOT USE"
 2d_physics/layer_2="CARGO WALLS"
 2d_physics/layer_3="CARGO STUFF"
+2d_physics/layer_4="PARASITE"
 2d_physics/layer_5="MINI COLIDER"
 2d_physics/layer_6="MINI PROJECTILE"
 

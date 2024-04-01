@@ -6,6 +6,10 @@ var parasite_scene = load("res://stuff/parasite.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HostDetector/CollisionShape2D.shape = CircleShape2D.new()
+	$Tether.length = 4 * randf()
+	$Tether.stiffness = 4 * randf()
+	$Tether.damping = 3 * randf()
+	$Tether.bias = 0.9 * randf()
 	pass # Replace with function body.
 
 
@@ -28,6 +32,7 @@ func _on_Flies_body_entered(body):
 
 
 func _on_Clicky_click():
+	print("length: ",$Tether.length,", stiffnes: ",$Tether.stiffness, " damping: ",$Tether.damping," bias: ",$Tether.bias)
 	queue_free()
 	pass # Replace with function body.
 
@@ -43,5 +48,5 @@ func _on_MoveTimer_timeout():
 	else:
 		direction = possible_targets[randi()%possible_targets.size()].global_position - global_position
 		direction = direction.normalized()
-	apply_central_impulse(direction * 250 * randf())
+	apply_central_impulse(direction * 200 * randf())
 	pass # Replace with function body.

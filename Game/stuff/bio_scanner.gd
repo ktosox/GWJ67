@@ -25,13 +25,11 @@ func start_scan():
 
 func complete_scan():
 	var cargo = $ScanSlider/ScanArea.get_overlapping_bodies()[0]
-	if cargo.get_meta("infested"):
-		print("infested")
+	if cargo.get_meta("infested") or cargo.get_meta("contraband"):
 		$Label.modulate = ColorN("red")
 		$Label.visible = true
 		$Label.text = "!!!"
 	else:
-		print("clean")
 		$Label.modulate = ColorN("green")
 		$Label.visible = true
 		$Label.text = "OK"
