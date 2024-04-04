@@ -35,48 +35,55 @@ text = "I have read the Pre-flight Briefing"
 [node name="TextPrinter" parent="." instance=ExtResource( 3 )]
 
 [node name="AllPages" type="HBoxContainer" parent="."]
-margin_left = 44.0
-margin_top = 51.0
-margin_right = 1280.0
-margin_bottom = 651.0
+margin_left = 34.0
+margin_top = 38.0
+margin_right = 1270.0
+margin_bottom = 538.0
 mouse_filter = 2
 alignment = 1
 
 [node name="Page1" parent="AllPages" instance=ExtResource( 2 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1280.0
-margin_bottom = 600.0
+margin_right = 1236.0
+margin_bottom = 500.0
 
 [node name="StoryFluffGoesHere" parent="AllPages/Page1" index="0"]
-text = "Pilot:
-Xyras Vortax
+margin_bottom = 600.0
+text = "Captain:
+	Xyras Vortax
+	
 star Date:
-day 1 / 6c / 07
-Spaceship type:
-A22-Rustbucket
+	day 1 / 6c / 07
+	
+Ship:
+	A22-Rustbucket
+	
 Flight Destination:
-terminal 5A / New Sydney / orbit of Titan
+	terminal 5A / New Sydney / orbit of Titan
 Purpose of flight:
-deliver 4 barrels of magenta Mussels (live)
+	deliver 4 barrels of magenta Mussels (live)
 estimated travel time:
-8 standard cycles
+	8 standard cycles
 expected weather:
-low sun activity - minimal debris with no comets
+	low sun activity - minimal debris with no comets
 Breaks:
-There are no scheduled breaks
+	There are no scheduled breaks
 Emegencies:
-There are no scheduled emergencies"
+	There are no scheduled emergencies"
+
+[node name="NewToyPlayground" parent="AllPages/Page1" index="2"]
+margin_right = 1236.0
 
 [node name="Page2" parent="AllPages" instance=ExtResource( 2 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1280.0
+margin_right = 1236.0
 margin_bottom = 600.0
 
 [node name="StoryFluffGoesHere" parent="AllPages/Page2" index="0"]
+margin_bottom = 600.0
 text = "Pilot:
 Xyras Vortax
 star Date:
@@ -95,6 +102,10 @@ Breaks:
 There are no scheduled breaks
 Emegencies:
 There are no scheduled emergencies"
+
+[node name="NewToyPlayground" parent="AllPages/Page2" index="2"]
+margin_right = 1236.0
+margin_bottom = 600.0
 
 [node name="Page3" parent="AllPages" instance=ExtResource( 2 )]
 visible = false
@@ -151,7 +162,7 @@ There are no scheduled breaks
 Emegencies:
 There are no scheduled emergencies"
 
-[node name="NewToyPlayground" parent="AllPages/Page4" index="1"]
+[node name="NewToyPlayground" parent="AllPages/Page4" index="2"]
 margin_right = 604.0
 
 [node name="Page5" parent="AllPages" instance=ExtResource( 2 )]
@@ -182,10 +193,11 @@ There are no scheduled breaks
 Emegencies:
 There are no scheduled emergencies"
 
-[node name="NewToyPlayground" parent="AllPages/Page5" index="1"]
+[node name="NewToyPlayground" parent="AllPages/Page5" index="2"]
 margin_right = 638.0
 
 [node name="TESTPAGE" type="HBoxContainer" parent="AllPages"]
+visible = false
 margin_right = 1236.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 0, 600 )

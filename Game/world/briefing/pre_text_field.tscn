@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world/briefing/pre_briefing_font.tres" type="DynamicFont" id=1]
+
+[node name="PreTextField" type="RichTextLabel"]
+margin_right = 197.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.156863, 0.156863, 0.117647, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+scroll_active = false

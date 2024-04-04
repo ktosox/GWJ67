@@ -1,11 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://resources/fonts/tonight_friend/Tonight Friend.otf" type="DynamicFontData" id=1]
-
-[sub_resource type="DynamicFont" id=1]
-size = 24
-use_filter = true
-font_data = ExtResource( 1 )
+[ext_resource path="res://world/briefing/pre_briefing_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://world/briefing/pre_text_field.tscn" type="PackedScene" id=2]
 
 [node name="Pre-flightPage" type="HBoxContainer"]
 anchor_right = 1.0
@@ -16,12 +12,13 @@ mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="StoryFluffGoesHere" type="RichTextLabel" parent="."]
+visible = false
 margin_right = 600.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 600, 0 )
 mouse_filter = 2
 custom_colors/default_color = Color( 0.156863, 0.156863, 0.117647, 1 )
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 1 )
 text = "stuff regarding the next flight
 stuff regarding the next flight
 stuff regarding the next flight
@@ -36,8 +33,97 @@ stuff regarding the next flight
 stuff regarding the next flight
 stuff regarding the next flight"
 
+[node name="BriefingLayout" type="VBoxContainer" parent="."]
+margin_right = 580.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 580, 0 )
+
+[node name="TopRow" type="HBoxContainer" parent="BriefingLayout"]
+margin_right = 580.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="PreTextField" parent="BriefingLayout/TopRow" instance=ExtResource( 2 )]
+margin_right = 187.0
+margin_bottom = 50.0
+size_flags_stretch_ratio = 0.92
+text = "Captain:
+	Xyras Vortax"
+
+[node name="PreTextField2" parent="BriefingLayout/TopRow" instance=ExtResource( 2 )]
+margin_left = 191.0
+margin_right = 372.0
+margin_bottom = 50.0
+size_flags_stretch_ratio = 0.89
+text = "star Date:
+	day 1 / 6c / 07"
+
+[node name="PreTextField3" parent="BriefingLayout/TopRow" instance=ExtResource( 2 )]
+margin_left = 376.0
+margin_right = 580.0
+margin_bottom = 50.0
+text = "Ship:
+	A22-Rustbucket"
+
+[node name="ColorRect2" type="ColorRect" parent="BriefingLayout"]
+margin_top = 54.0
+margin_right = 580.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 0, 5 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="MiddleRow" type="VBoxContainer" parent="BriefingLayout"]
+margin_top = 63.0
+margin_right = 580.0
+margin_bottom = 365.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PreTextField" parent="BriefingLayout/MiddleRow" instance=ExtResource( 2 )]
+margin_top = 51.0
+margin_right = 580.0
+margin_bottom = 251.0
+text = "Flight Destination:
+	terminal 5A / New Sydney / orbit of Titan
+Purpose of flight:
+	deliver 4 barrels of magenta Mussels (live)
+estimated travel time:
+	8 standard cycles
+expected weather:
+	low sun activity - minimal debris with no comets"
+fit_content_height = true
+
+[node name="ColorRect3" type="ColorRect" parent="BriefingLayout"]
+margin_top = 369.0
+margin_right = 580.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 0, 5 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="BottomRow" type="VBoxContainer" parent="BriefingLayout"]
+margin_top = 378.0
+margin_right = 580.0
+margin_bottom = 500.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="PreTextField" parent="BriefingLayout/BottomRow" instance=ExtResource( 2 )]
+margin_right = 580.0
+margin_bottom = 50.0
+text = "Breaks:
+	There are no scheduled breaks"
+fit_content_height = true
+
+[node name="PreTextField2" parent="BriefingLayout/BottomRow" instance=ExtResource( 2 )]
+margin_top = 54.0
+margin_right = 580.0
+margin_bottom = 104.0
+text = "Emegencies:
+	There are no scheduled emergencies"
+fit_content_height = true
+
 [node name="NewToyPlayground" type="ColorRect" parent="."]
-margin_left = 604.0
+margin_left = 584.0
 margin_right = 1280.0
 margin_bottom = 500.0
 size_flags_horizontal = 3
